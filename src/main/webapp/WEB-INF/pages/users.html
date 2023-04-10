@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Users </title>
+</head>
+<body>
+<h2>All Users</h2>
+<div>
+    <table border="1" cellpadding="5">
+        <tr>
+<!--            <th>ID</th>-->
+            <th>Name</th>
+            <th>Job</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Operations</th>
+        </tr>
+        <tr th:each="user : ${users}">
+
+<!--            <td th:text="${user.id}"></td>-->
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.job}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.salary}"></td>
+            <td>
+
+<!--                <a th:href="@{/edit/{id}(id=${user.id})}"><input type = "button" value="Update"></a>-->
+                <a th:href="@{/updateUser(userId=${user.id})}"><input type = "button" value="Update"></a>
+                <a th:href="@{/deleteUser(userId=${user.id})}"><input type = "button" value="Delete"></a>
+            </td>
+
+        </tr>
+
+
+
+    </table>
+    <br>
+    <tr>
+        <td>
+            <a href="http://localhost:8080/Java_PP_2_3_1_spring_mvc_hibernate_war_exploded/addNewUser">
+
+                <input type="button" value="Add">
+            </a>
+        </td>
+    </tr>
+
+</div>
+
+</body>
+</html>
